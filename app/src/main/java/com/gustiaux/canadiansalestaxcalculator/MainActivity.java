@@ -54,13 +54,16 @@ public class MainActivity extends AppCompatActivity {
     private TextWatcher inputPriceWatcher = new TextWatcher() {
 
         public void afterTextChanged(Editable s) {
-            result.setText("1.0");
-            Double inputPrice = Double.parseDouble(s.toString());
+            result.setText("0.0");
+            String input = s.toString();
+            if (input.isEmpty()) return;
+            Double inputPrice = Double.parseDouble(input);
             inputPrice = inputPrice * 1.13;
             result.setText(inputPrice.toString());
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            result.setText("before");
         }
 
         public void onTextChanged(CharSequence s, int start, int before,
