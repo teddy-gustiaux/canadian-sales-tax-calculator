@@ -72,6 +72,7 @@
         android:fontFamily="monospace"
         android:text="$"
         android:textSize="30sp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceDollarSign" />
 
@@ -88,7 +89,11 @@
         android:layout_height="38dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/back"
         android:fontFamily="monospace"
+        android:paddingLeft="5pt"
+        android:paddingRight="1pt"
+        android:paddingTop="1pt"
         android:text="0.00"
         android:textSize="24sp"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
