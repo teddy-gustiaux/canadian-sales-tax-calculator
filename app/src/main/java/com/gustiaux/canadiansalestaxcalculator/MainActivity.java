@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             Double priceCalculated = price * 1.13;
             result.setText(Utils.formatNumber(priceCalculated, true));
 
+            priceInput.setSelection(priceInput.getText().length());
             priceInput.addTextChangedListener(this);
         }
 
