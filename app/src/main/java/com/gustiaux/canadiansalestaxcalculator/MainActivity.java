@@ -13,9 +13,14 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     protected TextView result;
+    protected EditText priceInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.setTitle(getString(R.string.app_label));
         result = (TextView) findViewById(R.id.result);
-        EditText text = (EditText) findViewById(R.id.priceInput);
-        text.addTextChangedListener(inputPriceWatcher);
+        priceInput = (EditText) findViewById(R.id.priceInput);
+        priceInput.addTextChangedListener(inputPriceWatcher);
     }
 
     @Override
@@ -54,16 +60,25 @@ public class MainActivity extends AppCompatActivity {
     private TextWatcher inputPriceWatcher = new TextWatcher() {
 
         public void afterTextChanged(Editable s) {
-            result.setText("0.0");
+            priceInput.removeTextChangedListener(this);
+
+            result.setText(getString(R.string.default_result));
             String input = s.toString();
             if (input.isEmpty()) return;
-            Double inputPrice = Double.parseDouble(input);
-            inputPrice = inputPrice * 1.13;
-            result.setText(inputPrice.toString());
+
+            Double price = Double.parseDouble(Utils.cleanNumber(input));
+            priceInput.setText(Utils.formatNumber(price, false));
+            Double priceCalculated = price * 1.13;
+            result.setText(Utils.formatNumber(priceCalculated, true));
+
+            priceInput.addTextChangedListener(this);
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            result.setText("before");
+            int length = Utils.cleanNumber(s.toString()).length();
+            if (length == 9) {
+                Utils.displayToast(getString(R.string.input_too_long));
+            }
         }
 
         public void onTextChanged(CharSequence s, int start, int before,

@@ -17,12 +17,14 @@
         android:ems="10"
         android:fontFamily="monospace"
         android:inputType="numberDecimal"
-        android:singleLine="true"
+        android:digits="0123456789."
+        android:maxLength="13"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/priceDollarSign"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
         tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        android:maxLines="1" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -57,7 +59,7 @@
         android:layout_height="38dp"
         android:layout_marginTop="40dp"
         android:fontFamily="monospace"
-        android:text="$"
+        android:text="@string/dollarSign"
         android:textSize="30sp"
         app:layout_constraintRight_toLeftOf="@+id/priceInput"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,13 +69,14 @@
         android:id="@+id/resultDollarSign"
         android:layout_width="22dp"
         android:layout_height="38dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="56dp"
-        android:fontFamily="monospace"
-        android:text="$"
-        android:textSize="30sp"
 
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:fontFamily="monospace"
+        android:text="@string/dollarSign"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/priceDollarSign" />
 
     <android.support.constraint.Guideline
@@ -85,18 +88,25 @@
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="309dp"
+        android:layout_width="300dp"
         android:layout_height="38dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/back"
         android:fontFamily="monospace"
+        android:paddingEnd="1pt"
         android:paddingLeft="5pt"
         android:paddingRight="1pt"
+        android:paddingStart="5pt"
         android:paddingTop="1pt"
-        android:text="0.00"
+        android:text="@string/default_result"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/priceInput" />
+        app:layout_constraintTop_toBottomOf="@+id/priceInput"
+        app:layout_constraintLeft_toRightOf="@+id/resultDollarSign"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

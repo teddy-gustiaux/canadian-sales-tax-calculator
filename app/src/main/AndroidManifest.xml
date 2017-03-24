@@ -3,19 +3,21 @@
     package="com.gustiaux.canadiansalestaxcalculator">
 
     <application
+        android:name="com.gustiaux.CanadianSalesTaxCalculator"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_label"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_short_label"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_label"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_short_label"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
