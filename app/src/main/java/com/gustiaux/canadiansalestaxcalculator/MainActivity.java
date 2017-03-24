@@ -64,12 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
             result.setText(getString(R.string.default_result));
             String input = s.toString();
-            if (input.isEmpty()) return;
 
-            Double price = Double.parseDouble(Utils.cleanNumber(input));
-            priceInput.setText(Utils.formatNumber(price, false));
-            Double priceCalculated = price * 1.13;
-            result.setText(Utils.formatNumber(priceCalculated, true));
+            if (!input.isEmpty()) {
+                Double price = Double.parseDouble(Utils.cleanNumber(input));
+                priceInput.setText(Utils.formatNumber(price, false));
+                Double priceCalculated = price * 1.13;
+                result.setText(Utils.formatNumber(priceCalculated, true));
+            }
 
             priceInput.setSelection(priceInput.getText().length());
             priceInput.addTextChangedListener(this);
