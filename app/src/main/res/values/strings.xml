@@ -7,4 +7,5 @@
     <string name="default_result">"0.00"</string>
     <string name="input_too_long">"This item is probably too expensive..."</string>
     <string name="dollarSign">$</string>
+    <string name="clear_button">Clear</string>
 </resources>
