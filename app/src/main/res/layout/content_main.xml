@@ -17,7 +17,6 @@
         android:ems="10"
         android:fontFamily="monospace"
         android:inputType="numberDecimal"
-        android:digits="0123456789."
         android:maxLength="13"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/priceDollarSign"

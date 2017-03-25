@@ -1,21 +1,16 @@
 package com.gustiaux.canadiansalestaxcalculator;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.Locale;
+import com.gustiaux.canadiansalestaxcalculator.model.Price;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,11 +67,12 @@ public class MainActivity extends AppCompatActivity {
             result.setText(getString(R.string.default_result));
             String input = s.toString();
 
-            if (!input.isEmpty()) {
-                Double price = Double.parseDouble(Utils.cleanNumber(input));
-                priceInput.setText(Utils.formatNumber(price, false));
-                Double priceCalculated = price * 1.13;
-                result.setText(Utils.formatNumber(priceCalculated, true));
+            if (!input.isEmpty() && !input.equals(".")) {
+                Price inputPrice = new Price(input);
+                // TODO: Display separators
+                //priceInput.setText(inputPrice.formatNumber(false));
+                inputPrice.addSalesTax();
+                result.setText(inputPrice.formatNumber(true));
             }
 
             priceInput.setSelection(priceInput.getText().length());
@@ -84,10 +80,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            int length = Utils.cleanNumber(s.toString()).length();
-            if (length == 9) {
-                Utils.displayToast(getString(R.string.input_too_long));
-            }
+            // TODO: Refactor to account for separators
+            /*String input = s.toString();
+            if (input.isEmpty()) return;
+            input = input.replaceAll("[,.]", "");
+            if (input.length() == 9) {
+                UX.displayToast(getString(R.string.input_too_long));
+            }*/
         }
 
         public void onTextChanged(CharSequence s, int start, int before,
