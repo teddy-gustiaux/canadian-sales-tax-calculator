@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.gustiaux.canadiansalestaxcalculator.model.Location;
 import com.gustiaux.canadiansalestaxcalculator.model.Price;
 import com.gustiaux.canadiansalestaxcalculator.utils.UX;
 
@@ -87,7 +88,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
                 Price resultPrice = inputPrice;
-                resultPrice.addSalesTax();
+                String locationSetting = sharedPref.getString("location_list", "");
+                Log.e("myTag", locationSetting);
+                Location location = new Location(locationSetting);
+                resultPrice.addSalesTax(location.getTaxPercentage());
                 resultPrice.roundNumber();
                 result.setText(resultPrice.formatNumber());
             }

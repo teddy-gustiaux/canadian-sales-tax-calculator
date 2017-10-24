@@ -32,8 +32,8 @@ public class Price {
         this.price = Math.round(this.price * 100.00) / 100.00;
     }
 
-    public void addSalesTax() {
-        this.price = this.price * 1.13;
+    public void addSalesTax(Double percentage) {
+        this.price = this.price * (1 + percentage);
     }
 
 }
