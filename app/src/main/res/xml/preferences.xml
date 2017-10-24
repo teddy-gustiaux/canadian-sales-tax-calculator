@@ -1,13 +1,9 @@
 <PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <PreferenceCategory
         android:title="@string/pref_header_general" >
 
-    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
-         dismiss it. -->
-    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
         <ListPreference
             android:defaultValue="@string/ON"
             android:entries="@array/pref_location_list"
