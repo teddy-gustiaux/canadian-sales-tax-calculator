@@ -1,5 +1,6 @@
 package com.gustiaux.canadiansalestaxcalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
+                Intent settings = new Intent(this, SettingsActivity.class);
+                this.startActivity(settings);
                 return true;
 
             case R.id.action_clear:
