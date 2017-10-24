@@ -18,10 +18,18 @@ public class Price {
         return number;
     }
 
-    public String formatNumber(boolean round) {
+    @Override
+    public String toString() {
+        return Double.toString(this.price);
+    }
+
+    public String formatNumber() {
         NumberFormat nf = NumberFormat.getInstance(Locale.CANADA);
-        if (round) this.price = Math.round(this.price * 100.00) / 100.00;
         return nf.format(this.price);
+    }
+
+    public void roundNumber() {
+        this.price = Math.round(this.price * 100.00) / 100.00;
     }
 
     public void addSalesTax() {

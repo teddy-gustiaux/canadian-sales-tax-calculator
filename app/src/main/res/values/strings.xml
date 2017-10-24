@@ -35,7 +35,7 @@
     <string name="pref_header_display">Display</string>
 
     <!-- Display preferences -->
-    <string name="pref_thousands_separators">Display thousands separators</string>
+    <string name="pref_thousands_separators">Display thousands separators in input price</string>
 
     <!-- General preferences -->
     <string name="pref_title_location">Location selection</string>

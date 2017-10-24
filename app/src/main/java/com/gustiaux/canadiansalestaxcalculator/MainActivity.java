@@ -1,11 +1,14 @@
 package com.gustiaux.canadiansalestaxcalculator;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected TextView result;
     protected EditText priceInput;
+    protected SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         result = (TextView) findViewById(R.id.result);
         priceInput = (EditText) findViewById(R.id.priceInput);
         priceInput.addTextChangedListener(inputPriceWatcher);
+
+        this.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @Override
@@ -70,11 +76,20 @@ public class MainActivity extends AppCompatActivity {
             result.setText(getString(R.string.default_result));
             String input = s.toString();
 
+            Boolean separatorSwitch = sharedPref.getBoolean("separator_switch", true);
+            if (!separatorSwitch && input.length() > 10) {
+                input = input.substring(0, 10);
+                priceInput.setText(input);
+            }
+
             if (!input.isEmpty() && !input.equals(".")) {
                 Price inputPrice = new Price(input);
-                priceInput.setText(inputPrice.formatNumber(false));
-                inputPrice.addSalesTax();
-                result.setText(inputPrice.formatNumber(true));
+
+                if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
+                Price resultPrice = inputPrice;
+                resultPrice.addSalesTax();
+                resultPrice.roundNumber();
+                result.setText(resultPrice.formatNumber());
             }
 
             priceInput.setSelection(priceInput.getText().length());
@@ -82,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         public void onTextChanged(CharSequence s, int start, int before,
