@@ -6,6 +6,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@android:color/holo_red_dark</item>
         <item name="colorAccent">@android:color/holo_red_light</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="actionBarStyle">@style/App.ActionBar</item>
+        <item name="actionBarTheme">@style/MyApp.ActionBar.Theme</item>
+    </style>
+
+    <style name="App.ActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="titleTextStyle">@style/App.ActionBar.Title.TextStyle</item>
+    </style>
+
+    <style name="App.ActionBar.Title.TextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyApp.ActionBar.Theme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
