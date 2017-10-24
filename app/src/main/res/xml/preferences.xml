@@ -21,7 +21,8 @@
         <SwitchPreference
             android:defaultValue="true"
             android:key="separator_switch"
-            android:title="@string/pref_thousands_separators" />
+            android:title="@string/pref_thousands_separators"
+            android:summary="@string/pref_thousands_separators_summary"/>
 
     </PreferenceCategory>
 

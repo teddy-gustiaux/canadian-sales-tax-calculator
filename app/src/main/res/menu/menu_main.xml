@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.gustiaux.canadiansalestaxcalculator.MainActivity">
-    <!-- "Mark Favorite", should appear as action button if possible -->
     <item
         android:id="@+id/action_clear"
         android:icon="@drawable/delete"
