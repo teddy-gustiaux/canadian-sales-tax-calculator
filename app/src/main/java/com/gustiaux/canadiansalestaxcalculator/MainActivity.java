@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gustiaux.canadiansalestaxcalculator.model.Price;
+import com.gustiaux.canadiansalestaxcalculator.utils.UX;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (!input.isEmpty() && !input.equals(".")) {
                 Price inputPrice = new Price(input);
-                // TODO: Display separators
-                //priceInput.setText(inputPrice.formatNumber(false));
+                priceInput.setText(inputPrice.formatNumber(false));
                 inputPrice.addSalesTax();
                 result.setText(inputPrice.formatNumber(true));
             }
@@ -80,17 +80,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            // TODO: Refactor to account for separators
-            /*String input = s.toString();
-            if (input.isEmpty()) return;
-            input = input.replaceAll("[,.]", "");
-            if (input.length() == 9) {
-                UX.displayToast(getString(R.string.input_too_long));
-            }*/
+
         }
 
         public void onTextChanged(CharSequence s, int start, int before,
                                   int count) {
+            String input = s.toString();
+            if (input.isEmpty()) return;
+            input = input.replaceAll("[,.]", "");
+            if (input.length() == 10) {
+                UX.displayToast(getString(R.string.input_too_long));
+            }
         }
     };
 }
