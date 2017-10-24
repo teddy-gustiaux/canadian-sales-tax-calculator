@@ -171,6 +171,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             addPreferencesFromResource(R.xml.preferences);
             setHasOptionsMenu(true);
             bindPreferenceSummaryToValue(findPreference("location_list"));
+            Preference version = findPreference("version");
+            version.setSummary(BuildConfig.VERSION_NAME);
         }
 
         @Override

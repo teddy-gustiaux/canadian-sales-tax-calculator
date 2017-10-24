@@ -18,10 +18,47 @@
     <PreferenceCategory
         android:title="@string/pref_header_display">
 
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="separator_switch"
-        android:title="@string/pref_thousands_separators" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="separator_switch"
+            android:title="@string/pref_thousands_separators" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_header_about">
+
+        <Preference
+            android:selectable="false"
+            android:enabled="true"
+            android:key="version"
+            android:title="@string/pref_about_version"
+            android:summary="" />
+
+        <Preference
+            android:key="author"
+            android:title="@string/pref_about_author"
+            android:summary="Teddy Gustiaux">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://gustiaux.com" />
+        </Preference>
+
+        <Preference
+            android:key="license"
+            android:title="@string/pref_about_license"
+            android:summary="MIT">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://opensource.org/licenses/MIT" />
+        </Preference>
+
+        <Preference
+            android:key="license"
+            android:title="@string/pref_about_source"
+            android:summary="See on GitHub">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/teddy-gustiaux/canadian-sales-tax-calculator" />
+        </Preference>
+
 
     </PreferenceCategory>
 
