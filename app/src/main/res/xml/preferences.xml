@@ -62,7 +62,7 @@
 
         <Preference
             android:key="icon"
-            android:title="@string/pref_about_source"
+            android:title="@string/pref_about_icon"
             android:summary="@string/icon_summary">
             <intent android:action="android.intent.action.VIEW"
                 android:data="@string/icon_webstire" />
