@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             result.setText(getString(R.string.default_result));
             String input = s.toString();
 
-            Boolean separatorSwitch = sharedPref.getBoolean("separator_switch", true);
+            Boolean separatorSwitch = sharedPref.getBoolean(getString(R.string.separator_switch), true);
             if (!separatorSwitch && input.length() > 10) {
                 input = input.substring(0, 10);
                 priceInput.setText(input);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
                 Price resultPrice = inputPrice;
-                String locationSetting = sharedPref.getString("location_list", "");
+                String locationSetting = sharedPref.getString(getString(R.string.location_list), "");
                 Log.e("myTag", locationSetting);
                 Location location = new Location(locationSetting);
                 resultPrice.addSalesTax(location.getTaxPercentage());

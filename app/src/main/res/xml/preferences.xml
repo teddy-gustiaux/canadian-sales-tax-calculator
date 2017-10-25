@@ -8,7 +8,7 @@
             android:defaultValue="@string/ON"
             android:entries="@array/pref_location_list"
             android:entryValues="@array/pref_location_list_values"
-            android:key="location_list"
+            android:key="@string/location_list"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:title="@string/pref_title_location"/>
@@ -20,7 +20,7 @@
 
         <SwitchPreference
             android:defaultValue="true"
-            android:key="separator_switch"
+            android:key="@string/separator_switch"
             android:title="@string/pref_thousands_separators"
             android:summary="@string/pref_thousands_separators_summary"/>
 
@@ -32,34 +32,41 @@
         <Preference
             android:selectable="false"
             android:enabled="true"
-            android:key="version"
+            android:key="@string/version"
             android:title="@string/pref_about_version"
             android:summary="" />
 
         <Preference
             android:key="author"
             android:title="@string/pref_about_author"
-            android:summary="Teddy Gustiaux">
+            android:summary="@string/author">
             <intent android:action="android.intent.action.VIEW"
-                android:data="https://gustiaux.com" />
+                android:data="@string/author_website" />
         </Preference>
 
         <Preference
             android:key="license"
             android:title="@string/pref_about_license"
-            android:summary="MIT">
+            android:summary="@string/license_summary">
             <intent android:action="android.intent.action.VIEW"
-                android:data="https://opensource.org/licenses/MIT" />
+                android:data="@string/license_website" />
         </Preference>
 
         <Preference
-            android:key="license"
+            android:key="source"
             android:title="@string/pref_about_source"
-            android:summary="See on GitHub">
+            android:summary="@string/source_summary">
             <intent android:action="android.intent.action.VIEW"
-                android:data="https://github.com/teddy-gustiaux/canadian-sales-tax-calculator" />
+                android:data="@string/source_website" />
         </Preference>
 
+        <Preference
+            android:key="icon"
+            android:title="@string/pref_about_source"
+            android:summary="@string/icon_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="@string/icon_webstire" />
+        </Preference>
 
     </PreferenceCategory>
 
