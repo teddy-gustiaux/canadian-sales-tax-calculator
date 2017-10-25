@@ -7,6 +7,9 @@
     <!-- Miscellaneous -->
     <string name="default_result">"0"</string>
     <string name="dollarSign">$</string>
+    <string name="total">Total after tax:</string>
+    <string name="location">Location:</string>
+    <string name="tax">Total GST/HST:</string>
 
     <!-- Toasts -->
     <string name="input_too_long">"This item is probably too expensive..."</string>

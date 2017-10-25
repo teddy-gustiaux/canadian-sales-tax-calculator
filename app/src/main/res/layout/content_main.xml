@@ -6,24 +6,26 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gustiaux.canadiansalestaxcalculator.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <EditText
         android:id="@+id/priceInput"
         android:layout_width="301dp"
         android:layout_height="67dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="73dp"
         android:ems="10"
         android:fontFamily="monospace"
         android:inputType="numberDecimal"
         android:maxLength="13"
+        android:maxLines="1"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/priceDollarSign"
-        app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:maxLines="1" />
+        app:layout_constraintLeft_toRightOf="@+id/priceDollarSign"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -56,42 +58,47 @@
         android:id="@+id/priceDollarSign"
         android:layout_width="22dp"
         android:layout_height="38dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="23dp"
         android:fontFamily="monospace"
         android:text="@string/dollarSign"
         android:textSize="30sp"
-        app:layout_constraintRight_toLeftOf="@+id/priceInput"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1" />
+        app:layout_constraintLeft_toLeftOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/total_gst_hst" />
 
     <TextView
         android:id="@+id/resultDollarSign"
         android:layout_width="22dp"
         android:layout_height="38dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="56dp"
 
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="monospace"
         android:text="@string/dollarSign"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/priceDollarSign" />
+        app:layout_constraintTop_toBottomOf="@+id/total_after_tax" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline5"
         app:layout_constraintGuide_begin="20dp"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="20dp" />
 
     <TextView
         android:id="@+id/result"
         android:layout_width="300dp"
         android:layout_height="38dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/back"
         android:fontFamily="monospace"
         android:paddingEnd="1pt"
@@ -102,10 +109,49 @@
         android:text="@string/default_result"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/priceInput"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/resultDollarSign"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintRight_toLeftOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/total_after_tax" />
+
+    <TextView
+        android:id="@+id/total_gst_hst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/tax"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/location"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/total_after_tax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/total"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/priceInput" />
 
 </android.support.constraint.ConstraintLayout>
