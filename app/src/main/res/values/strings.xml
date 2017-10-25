@@ -8,8 +8,8 @@
     <string name="default_result">"0"</string>
     <string name="dollarSign">$</string>
     <string name="total">Total after tax:</string>
-    <string name="location">Location:</string>
-    <string name="tax">GST/HST:</string>
+    <string name="location">Location: %1$s</string>
+    <string name="tax">GST/HST: %1$s%%</string>
 
     <!-- Toasts -->
     <string name="input_too_long">"This item is probably too expensive..."</string>

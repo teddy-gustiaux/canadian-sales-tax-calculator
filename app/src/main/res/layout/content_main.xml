@@ -65,7 +65,7 @@
         android:text="@string/dollarSign"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/total_gst_hst" />
+        app:layout_constraintTop_toBottomOf="@+id/tax" />
 
     <TextView
         android:id="@+id/resultDollarSign"
@@ -117,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/total_after_tax" />
 
     <TextView
-        android:id="@+id/total_gst_hst"
+        android:id="@+id/tax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"

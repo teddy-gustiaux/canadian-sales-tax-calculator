@@ -21,8 +21,12 @@ import com.gustiaux.canadiansalestaxcalculator.utils.UX;
 public class MainActivity extends AppCompatActivity {
 
     protected TextView result;
+    protected TextView locationTextView;
+    protected TextView taxTextView;
     protected EditText priceInput;
     protected SharedPreferences sharedPref;
+    protected String locationSetting;
+    protected Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         priceInput.addTextChangedListener(inputPriceWatcher);
 
         this.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        locationTextView = (TextView) findViewById(R.id.location);
+        this.locationSetting = sharedPref.getString(getString(R.string.location_list), "");
+        locationTextView.setText(getString(R.string.location, this.locationSetting));
+
+        taxTextView = (TextView) findViewById(R.id.tax);
+        this.location = new Location(this.locationSetting);
+        taxTextView.setText(getString(R.string.tax, location.getPercentage()));
     }
 
     @Override
@@ -88,9 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
                 Price resultPrice = inputPrice;
-                String locationSetting = sharedPref.getString(getString(R.string.location_list), "");
-                Log.e("myTag", locationSetting);
-                Location location = new Location(locationSetting);
                 resultPrice.addSalesTax(location.getTaxPercentage());
                 resultPrice.roundNumber();
                 result.setText(resultPrice.formatNumber());

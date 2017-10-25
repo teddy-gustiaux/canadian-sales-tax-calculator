@@ -35,4 +35,8 @@ public class Location {
         return this.taxPercentage.doubleValue() / 100;
     }
 
+    public String getPercentage() {
+        return Integer.toString(this.taxPercentage);
+    }
+
 }
