@@ -77,6 +77,7 @@
         android:layout_marginTop="13dp"
         android:fontFamily="monospace"
         android:text="@string/dollarSign"
+        android:textColor="@color/dark_grey"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/total_after_tax" />
@@ -107,6 +108,7 @@
         android:paddingStart="5pt"
         android:paddingTop="1pt"
         android:text="@string/default_result"
+        android:textColor="@color/dark_grey"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.0"
@@ -124,7 +126,7 @@
         android:text="@string/tax"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:textStyle="italic"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/location" />
 
@@ -150,6 +152,7 @@
         android:layout_marginTop="14dp"
         android:text="@string/total"
         android:textAllCaps="true"
+        android:textColor="@color/dark_grey"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/priceInput" />
