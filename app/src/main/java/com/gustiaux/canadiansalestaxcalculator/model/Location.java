@@ -31,6 +31,10 @@ public class Location {
         this.taxPercentage = this.locationTaxes.get(code);
     }
 
+    public void updateLocation(String code) {
+        this.taxPercentage = this.locationTaxes.get(code);
+    }
+
     public Double getTaxPercentage() {
         return this.taxPercentage.doubleValue() / 100;
     }

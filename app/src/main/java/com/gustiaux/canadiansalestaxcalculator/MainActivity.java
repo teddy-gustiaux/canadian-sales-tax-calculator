@@ -8,17 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.gustiaux.CanadianSalesTaxCalculator;
 import com.gustiaux.canadiansalestaxcalculator.model.Location;
 import com.gustiaux.canadiansalestaxcalculator.model.Price;
 import com.gustiaux.canadiansalestaxcalculator.utils.UX;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     protected TextView result;
     protected TextView locationTextView;
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     protected EditText priceInput;
     protected SharedPreferences sharedPref;
     protected String locationSetting;
-    protected Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +40,19 @@ public class MainActivity extends AppCompatActivity {
         priceInput.addTextChangedListener(inputPriceWatcher);
 
         this.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        updateLocationInformation();
+    }
 
+    public void updateLocationInformation() {
         locationTextView = (TextView) findViewById(R.id.location);
         this.locationSetting = sharedPref.getString(getString(R.string.location_list), "");
         locationTextView.setText(getString(R.string.location, this.locationSetting));
 
         taxTextView = (TextView) findViewById(R.id.tax);
-        this.location = new Location(this.locationSetting);
-        taxTextView.setText(getString(R.string.tax, location.getPercentage()));
+        Location l = ((CanadianSalesTaxCalculator) this.getApplication()).getLocation();
+        l.updateLocation(this.locationSetting);
+        ((CanadianSalesTaxCalculator) this.getApplication()).setLocation(l);
+        taxTextView.setText(getString(R.string.tax, l.getPercentage()));
     }
 
     @Override
@@ -81,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateLocationInformation();
+    }
+
     private TextWatcher inputPriceWatcher = new TextWatcher() {
 
         public void afterTextChanged(Editable s) {
@@ -100,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
                 Price resultPrice = inputPrice;
-                resultPrice.addSalesTax(location.getTaxPercentage());
+                Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
+                resultPrice.addSalesTax(l.getTaxPercentage());
                 resultPrice.roundNumber();
                 result.setText(resultPrice.formatNumber());
             }
