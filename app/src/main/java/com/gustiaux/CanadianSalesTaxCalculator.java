@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatDelegate;
-import android.util.Log;
 
 import com.gustiaux.canadiansalestaxcalculator.R;
 import com.gustiaux.canadiansalestaxcalculator.model.Location;
@@ -43,6 +42,5 @@ public class CanadianSalesTaxCalculator extends Application {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-        Log.e("TAG", "Theme dark applied: " + darkTheme.toString());
     }
 }

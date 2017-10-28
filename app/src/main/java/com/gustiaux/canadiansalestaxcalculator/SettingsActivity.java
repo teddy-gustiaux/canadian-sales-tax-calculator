@@ -135,9 +135,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             Intent upIntent = NavUtils.getParentActivityIntent(this);
             if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
                 // This activity is NOT part of this app's task, so create a new task
-                // when navigating up, with a synthesized back stack.
+                // when navigating up, with a synthesized rectangle stack.
                 TaskStackBuilder.create(this)
-                        // Add all of this activity's parents to the back stack
+                        // Add all of this activity's parents to the rectangle stack
                         .addNextIntentWithParentStack(upIntent)
                         // Navigate up to the closest parent
                         .startActivities();
@@ -182,10 +182,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         CanadianSalesTaxCalculator.applyCorrectTheme();
     }
 
-    /**
-     * This fragment shows general preferences only. It is used when the
-     * activity is showing a two-pane settings UI.
-     */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class PreferencesFragment extends PreferenceFragment {
         @Override
@@ -193,8 +189,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
             setHasOptionsMenu(true);
-            bindPreferenceSummaryToValue(findPreference("location_list"));
-            Preference version = findPreference("version");
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.location_list)));
+            Preference version = findPreference(getString(R.string.version));
             version.setSummary(BuildConfig.VERSION_NAME);
         }
 
