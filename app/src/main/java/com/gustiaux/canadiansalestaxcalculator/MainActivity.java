@@ -18,7 +18,7 @@ import com.gustiaux.canadiansalestaxcalculator.model.Location;
 import com.gustiaux.canadiansalestaxcalculator.model.Price;
 import com.gustiaux.canadiansalestaxcalculator.utils.UX;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     protected TextView result;
     protected TextView locationTextView;
@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        CanadianSalesTaxCalculator.applyCorrectTheme();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

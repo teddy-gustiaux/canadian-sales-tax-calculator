@@ -72,12 +72,10 @@
         android:layout_width="22dp"
         android:layout_height="38dp"
 
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="13dp"
         android:fontFamily="monospace"
         android:text="@string/dollarSign"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/colorHighlight"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/total_after_tax" />
@@ -95,10 +93,7 @@
         android:id="@+id/result"
         android:layout_width="300dp"
         android:layout_height="38dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/back"
         android:fontFamily="monospace"
@@ -108,13 +103,13 @@
         android:paddingStart="5pt"
         android:paddingTop="1pt"
         android:text="@string/default_result"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/colorHighlight"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/resultDollarSign"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/total_after_tax" />
+        app:layout_constraintTop_toBottomOf="@+id/total_after_tax" android:layout_marginEnd="8dp"/>
 
     <TextView
         android:id="@+id/tax"
@@ -147,12 +142,10 @@
         android:id="@+id/total_after_tax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="14dp"
         android:text="@string/total"
         android:textAllCaps="true"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/colorHighlight"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/priceInput" />

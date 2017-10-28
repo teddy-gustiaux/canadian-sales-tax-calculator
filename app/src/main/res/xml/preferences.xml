@@ -24,6 +24,12 @@
             android:title="@string/pref_thousands_separators"
             android:summary="@string/pref_thousands_separators_summary"/>
 
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/dark_theme_switch"
+            android:title="@string/pref_dark_theme"
+            android:summary="@string/pref_dark_theme_summary"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

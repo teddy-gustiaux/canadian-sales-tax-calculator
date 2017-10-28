@@ -2,10 +2,13 @@ package com.gustiaux;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 
 import com.gustiaux.canadiansalestaxcalculator.R;
 import com.gustiaux.canadiansalestaxcalculator.model.Location;
-import com.gustiaux.canadiansalestaxcalculator.model.Price;
 
 public class CanadianSalesTaxCalculator extends Application {
 
@@ -29,5 +32,17 @@ public class CanadianSalesTaxCalculator extends Application {
 
     public static Context getAppContext() {
         return CanadianSalesTaxCalculator.context;
+    }
+
+    public static void applyCorrectTheme() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+
+        Boolean darkTheme = sharedPref.getBoolean(context.getString(R.string.dark_theme_switch), false);
+        if (darkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        Log.e("TAG", "Theme dark applied: " + darkTheme.toString());
     }
 }

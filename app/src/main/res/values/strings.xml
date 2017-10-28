@@ -42,6 +42,9 @@
     <string name="pref_thousands_separators">Display thousands separators</string>
     <string name="pref_thousands_separators_summary">In the input price</string>
     <string name="separator_switch">separator_switch</string>
+    <string name="dark_theme_switch">dark_theme_switch</string>
+    <string name="pref_dark_theme">Enable dark theme</string>
+    <string name="pref_dark_theme_summary">The application will restart</string>
 
     <!-- General preferences -->
     <string name="pref_title_location">Location selection</string>
