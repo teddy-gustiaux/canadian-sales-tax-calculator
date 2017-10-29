@@ -30,6 +30,12 @@
             android:title="@string/pref_dark_theme"
             android:summary="@string/pref_dark_theme_summary"/>
 
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/location_name_switch"
+            android:title="@string/pref_location_name"
+            android:summary="@string/pref_location_name_summary"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

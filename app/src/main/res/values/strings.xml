@@ -48,6 +48,9 @@
     <string name="dark_theme_switch">dark_theme_switch</string>
     <string name="pref_dark_theme">Enable dark theme</string>
     <string name="pref_dark_theme_summary">The application will restart</string>
+    <string name="location_name_switch">location_name_switch</string>
+    <string name="pref_location_name">Display full location name</string>
+    <string name="pref_location_name_summary">If not, will display ISO 3166\-2:CA code</string>
 
     <!-- General preferences -->
     <string name="pref_title_location">Location selection</string>

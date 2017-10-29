@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -17,6 +18,9 @@ import com.gustiaux.CanadianSalesTaxCalculator;
 import com.gustiaux.canadiansalestaxcalculator.model.Location;
 import com.gustiaux.canadiansalestaxcalculator.model.Price;
 import com.gustiaux.canadiansalestaxcalculator.utils.UX;
+
+import java.util.Arrays;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +52,17 @@ public class MainActivity extends AppCompatActivity {
     public void updateLocationInformation() {
         locationTextView = (TextView) findViewById(R.id.location);
         this.locationSetting = sharedPref.getString(getString(R.string.location_list), "");
-        locationTextView.setText(getString(R.string.location, this.locationSetting));
+
+        Boolean locationDisplayName = sharedPref.getBoolean(getString(R.string.location_name_switch), true);
+        if (locationDisplayName) {
+            String[] locationNames = getResources().getStringArray(R.array.pref_location_list);
+            String[] locationValues = getResources().getStringArray(R.array.pref_location_list_values);
+            int indexOfLocation = Arrays.asList(locationValues).indexOf(this.locationSetting);
+            String locationName = locationNames[indexOfLocation];
+            locationTextView.setText(getString(R.string.location, locationName));
+        } else {
+            locationTextView.setText(getString(R.string.location, this.locationSetting));
+        }
 
         taxTextView = (TextView) findViewById(R.id.tax);
         Location l = ((CanadianSalesTaxCalculator) this.getApplication()).getLocation();
