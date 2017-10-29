@@ -6,13 +6,15 @@
 
     <!-- Miscellaneous -->
     <string name="default_result">"0"</string>
+    <string name="default_input_decimal">"0."</string>
     <string name="dollarSign">$</string>
     <string name="total">Total after tax:</string>
     <string name="location">Location: %1$s</string>
     <string name="tax">GST/HST: %1$s%%</string>
 
     <!-- Toasts -->
-    <string name="input_too_long">"This item is probably too expensive..."</string>
+    <string name="input_too_expensive">"This item is probably too expensive..."</string>
+    <string name="input_too_long">"The input price is too long"</string>
 
     <!-- Buttons -->
     <string name="action_settings">Settings</string>

@@ -25,6 +25,12 @@ public class Price {
 
     public String formatNumber() {
         NumberFormat nf = NumberFormat.getInstance(Locale.CANADA);
+        nf.setMaximumFractionDigits(15);
+        if ((this.price == Math.floor(this.price)) && !Double.isInfinite(this.price)) {
+            // Integer
+        } else {
+            nf.setMinimumFractionDigits(1);
+        }
         return nf.format(this.price);
     }
 

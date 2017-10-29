@@ -98,24 +98,35 @@ public class MainActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
             priceInput.removeTextChangedListener(this);
 
-            result.setText(getString(R.string.default_result));
             String input = s.toString();
 
             Boolean separatorSwitch = sharedPref.getBoolean(getString(R.string.separator_switch), true);
             if (!separatorSwitch && input.length() > 10) {
-                input = input.substring(0, 10);
+                if (input.contains(".")) {
+                    input = input.substring(0, 11);
+                } else {
+                    input = input.substring(0, 10);
+                }
                 priceInput.setText(input);
+            } else if (separatorSwitch && input.length() > 10 && !input.contains(",")) {
+                input = input.substring(0, 11);
             }
 
             if (!input.isEmpty() && !input.equals(".")) {
-                Price inputPrice = new Price(input);
-
-                if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
-                Price resultPrice = inputPrice;
-                Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
-                resultPrice.addSalesTax(l.getTaxPercentage());
-                resultPrice.roundNumber();
-                result.setText(resultPrice.formatNumber());
+                String lastCharacter = input.substring(input.length() - 1);
+                if (!lastCharacter.equals(".")) {
+                    Price inputPrice = new Price(input);
+                    if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
+                    Price resultPrice = inputPrice;
+                    Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
+                    resultPrice.addSalesTax(l.getTaxPercentage());
+                    resultPrice.roundNumber();
+                    result.setText(resultPrice.formatNumber());
+                }
+            } else if (!input.isEmpty() && input.length() == 1 && input.equals(".")) {
+                priceInput.setText(getString(R.string.default_input_decimal));
+            } else {
+                result.setText(getString(R.string.default_result));
             }
 
             priceInput.setSelection(priceInput.getText().length());
@@ -131,7 +142,11 @@ public class MainActivity extends AppCompatActivity {
             if (input.isEmpty()) return;
             input = input.replaceAll("[,.]", "");
             if (input.length() == 10) {
-                UX.displayToast(getString(R.string.input_too_long));
+                if (s.toString().contains(".")) {
+                    UX.displayToast(getString(R.string.input_too_long));
+                } else {
+                    UX.displayToast(getString(R.string.input_too_expensive));
+                }
             }
         }
     };
