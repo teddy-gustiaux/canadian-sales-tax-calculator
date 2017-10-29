@@ -17,9 +17,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
-
-import com.gustiaux.CanadianSalesTaxCalculator;
-
 import java.util.List;
 
 /**
@@ -112,7 +109,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                                                       String key) {
                     if (key.equals(getString(R.string.dark_theme_switch))) {
-                        startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+                        Intent intent = NavUtils.getParentActivityIntent(SettingsActivity.this);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        NavUtils.navigateUpTo(SettingsActivity.this, intent);
                     }
                 }
             };
@@ -176,12 +175,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 || PreferencesFragment.class.getName().equals(fragmentName);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        CanadianSalesTaxCalculator.applyCorrectTheme();
-    }
-
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class PreferencesFragment extends PreferenceFragment {
         @Override
@@ -192,16 +185,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference(getString(R.string.location_list)));
             Preference version = findPreference(getString(R.string.version));
             version.setSummary(BuildConfig.VERSION_NAME);
-        }
-
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            int id = item.getItemId();
-            if (id == android.R.id.home) {
-                startActivity(new Intent(getActivity(), SettingsActivity.class));
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
         }
     }
 }

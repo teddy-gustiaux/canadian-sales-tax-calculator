@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -20,7 +19,6 @@ import com.gustiaux.canadiansalestaxcalculator.model.Price;
 import com.gustiaux.canadiansalestaxcalculator.utils.UX;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
