@@ -9,6 +9,7 @@
     <string name="default_input_decimal">"0."</string>
     <string name="dollarSign">$</string>
     <string name="total">Total after tax:</string>
+    <string name="start_price">Price:</string>
     <string name="location">Location: %1$s</string>
     <string name="tax">GST/HST: %1$s%%</string>
 
