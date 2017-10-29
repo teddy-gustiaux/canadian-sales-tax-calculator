@@ -32,11 +32,11 @@ No ads and no permissions required. Respects your privacy!
 
 *Feel free to contribute to the project!*
 
-## Source
+## Source:
 
 Official source used for GST/HST rates: [Canada Revenue Agency](http://www.cra-arc.gc.ca/tx/bsnss/tpcs/gst-tps/rts-eng.html).
 
-## Attribution:
+## Attributions:
 
 - Google Play and the Google Play logo are trademarks of Google LLC.
 
