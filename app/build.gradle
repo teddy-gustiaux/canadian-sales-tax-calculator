@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -13,6 +17,14 @@ android {
         vectorDrawables.useSupportLibrary = true
         resConfigs "en"
     }
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
     buildTypes {
         release {
             shrinkResources true
@@ -23,6 +35,11 @@ android {
             shrinkResources false
             minifyEnabled false
             proguardFiles 'proguard-rules.pro'
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "CanadianSalesTaxCalculator-${variant.name}-${variant.versionName}.apk"
         }
     }
 }
