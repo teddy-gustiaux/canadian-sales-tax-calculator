@@ -73,14 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateInputPrice() {
         String memoryInput = sharedPref.getString(getString(R.string.memory_input_price), null);
-        Log.e("TAG", "memoryInput: " + memoryInput);
         if (memoryInput != null && !memoryInput.isEmpty()) priceInput.setText(memoryInput);
     }
 
     public void displayInputPrice(String price) {
         sharedPref.edit().putString(getString(R.string.memory_input_price), price).apply();
-        String memoryInput = sharedPref.getString(getString(R.string.memory_input_price), null);
-        Log.e("TAG", "memoryInput commit: " + memoryInput);
         priceInput.setText(price);
     }
 
