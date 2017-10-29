@@ -12,6 +12,7 @@
     <string name="start_price">Price:</string>
     <string name="location">Location: %1$s</string>
     <string name="tax">GST/HST: %1$s%%</string>
+    <string name="memory_input_price">memory_input_price</string>
 
     <!-- Toasts -->
     <string name="input_too_expensive">"This item is probably too expensive..."</string>

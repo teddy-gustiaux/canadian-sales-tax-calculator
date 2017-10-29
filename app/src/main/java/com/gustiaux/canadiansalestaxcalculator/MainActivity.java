@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         updateLocationInformation();
+        updateInputPrice();
     }
 
     public void updateLocationInformation() {
@@ -67,6 +69,19 @@ public class MainActivity extends AppCompatActivity {
         l.updateLocation(this.locationSetting);
         ((CanadianSalesTaxCalculator) this.getApplication()).setLocation(l);
         taxTextView.setText(getString(R.string.tax, l.getPercentage()));
+    }
+
+    public void updateInputPrice() {
+        String memoryInput = sharedPref.getString(getString(R.string.memory_input_price), null);
+        Log.e("TAG", "memoryInput: " + memoryInput);
+        if (memoryInput != null && !memoryInput.isEmpty()) priceInput.setText(memoryInput);
+    }
+
+    public void displayInputPrice(String price) {
+        sharedPref.edit().putString(getString(R.string.memory_input_price), price).apply();
+        String memoryInput = sharedPref.getString(getString(R.string.memory_input_price), null);
+        Log.e("TAG", "memoryInput commit: " + memoryInput);
+        priceInput.setText(price);
     }
 
     @Override
@@ -103,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         updateLocationInformation();
+        updateInputPrice();
     }
 
     private TextWatcher inputPriceWatcher = new TextWatcher() {
@@ -112,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
             String input = s.toString();
 
+            // Make sure there are no more than 10 digits
             Boolean separatorSwitch = sharedPref.getBoolean(getString(R.string.separator_switch), true);
             if (!separatorSwitch && input.length() > 10) {
                 if (input.contains(".")) {
@@ -119,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     input = input.substring(0, 10);
                 }
-                priceInput.setText(input);
+                displayInputPrice(input);
             } else if (separatorSwitch && input.length() > 10 && !input.contains(",")) {
                 input = input.substring(0, 11);
             }
@@ -128,7 +145,12 @@ public class MainActivity extends AppCompatActivity {
                 String lastCharacter = input.substring(input.length() - 1);
                 if (!lastCharacter.equals(".")) {
                     Price inputPrice = new Price(input);
-                    if (separatorSwitch) priceInput.setText(inputPrice.formatNumber());
+                    if (separatorSwitch) {
+                        displayInputPrice(inputPrice.formatNumber());
+                    } else {
+                        displayInputPrice(input);
+                    }
+                    // Calculate total after taxes
                     Price resultPrice = inputPrice;
                     Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
                     resultPrice.addSalesTax(l.getTaxPercentage());
@@ -137,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     result.setText(resultPrice.formatNumber());
                 }
             } else if (!input.isEmpty() && input.length() == 1 && input.equals(".")) {
-                priceInput.setText(getString(R.string.default_input_decimal));
+                displayInputPrice(getString(R.string.default_input_decimal));
             } else {
                 result.setText(getString(R.string.default_result));
             }
