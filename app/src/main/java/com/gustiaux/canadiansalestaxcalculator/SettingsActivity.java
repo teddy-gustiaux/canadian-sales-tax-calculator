@@ -98,23 +98,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         // Display the fragment as the main content.
         getFragmentManager().beginTransaction().replace(android.R.id.content,
                 new PreferencesFragment()).commit();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
-
     }
-
-    private SharedPreferences.OnSharedPreferenceChangeListener listener =
-            new SharedPreferences.OnSharedPreferenceChangeListener() {
-
-                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-                                                      String key) {
-                    if (key.equals(getString(R.string.dark_theme_switch))) {
-                        Intent intent = NavUtils.getParentActivityIntent(SettingsActivity.this);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        NavUtils.navigateUpTo(SettingsActivity.this, intent);
-                    }
-                }
-            };
 
     /**
      * Set up the {@link android.app.ActionBar}, if the API is available.
@@ -185,6 +169,32 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference(getString(R.string.location_list)));
             Preference version = findPreference(getString(R.string.version));
             version.setSummary(BuildConfig.VERSION_NAME);
+            PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(listener);
         }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(listener);
+        }
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            PreferenceManager.getDefaultSharedPreferences(getActivity()).unregisterOnSharedPreferenceChangeListener(listener);
+        }
+
+        private SharedPreferences.OnSharedPreferenceChangeListener listener =
+                new SharedPreferences.OnSharedPreferenceChangeListener() {
+
+                    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+                                                          String key) {
+                        if (key.equals(getString(R.string.dark_theme_switch))) {
+                            Intent intent = NavUtils.getParentActivityIntent(getActivity());
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            NavUtils.navigateUpTo(getActivity(), intent);
+                        }
+                    }
+                };
     }
 }
