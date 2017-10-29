@@ -67,11 +67,19 @@
         </Preference>
 
         <Preference
+            android:key="taxes"
+            android:title="@string/pref_about_taxes"
+            android:summary="@string/taxes_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="@string/taxes_website" />
+        </Preference>
+
+        <Preference
             android:key="icon"
             android:title="@string/pref_about_icon"
             android:summary="@string/icon_summary">
             <intent android:action="android.intent.action.VIEW"
-                android:data="@string/icon_webstire" />
+                android:data="@string/icon_website" />
         </Preference>
 
     </PreferenceCategory>

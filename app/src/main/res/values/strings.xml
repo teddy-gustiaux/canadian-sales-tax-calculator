@@ -94,7 +94,10 @@
     <string name="pref_about_source">Source code</string>
     <string name="source_summary">See on GitHub</string>
     <string name="source_website">https://github.com/teddy-gustiaux/canadian-sales-tax-calculator</string>
+    <string name="pref_about_taxes">Canada Revenue Agency</string>
+    <string name="taxes_summary">Official source used for GST/HST rates</string>
+    <string name="taxes_website">http://www.cra-arc.gc.ca/tx/bsnss/tpcs/gst-tps/rts-eng.html</string>
     <string name="pref_about_icon">Icon</string>
     <string name="icon_summary">Adapted from Calculator by To Uyen</string>
-    <string name="icon_webstire">https://thenounproject.com/search/?q=calculator&amp;i=670846</string>
+    <string name="icon_website">https://thenounproject.com/search/?q=calculator&amp;i=670846</string>
 </resources>
