@@ -1,7 +1,37 @@
 # Canadian Sales Tax Calculator
 *Another simple Canadian sales tax calculator for Android.*
 
-This is a work in progress. Please don't hesitate to come back for updates!
+**Free and open-source sales tax calculator to easily find out how much an item will really cost you.** Simple and straightforward, no matter where you are in Canada!
 
-### Attribution:
+No ads and no permissions required. Respects your privacy!
+
+## Features:
+- Dark theme
+- Penny rounding
+- Easily clear the price input
+- Display thousands separators in the input price
+- Display the full location name or only its ISO code
+
+## Supports all provinces and territories:
+- Alberta
+- British Columbia
+- Manitoba
+- New Brunswick
+- Newfoundland and Labrador
+- Northwest Territories
+- Nova Scotia
+- Nunavut
+- Ontario
+- Quebec
+- Prince Edward Island
+- Saskatchewan
+- Yukon
+
+*Feel free to contribute to the project!*
+
+## Source
+
+Official source used for GST/HST rates: [Canada Revenue Agency](http://www.cra-arc.gc.ca/tx/bsnss/tpcs/gst-tps/rts-eng.html).
+
+## Attribution:
 The app icon is a modified version of the icon *Calculator* by To Uyen from the Noun Project (available [here](https://thenounproject.com/search/?q=calculator&i=670846)).
