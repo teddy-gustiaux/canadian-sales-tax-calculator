@@ -132,7 +132,8 @@ public class MainActivity extends AppCompatActivity {
                     Price resultPrice = inputPrice;
                     Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
                     resultPrice.addSalesTax(l.getTaxPercentage());
-                    resultPrice.roundNumber();
+                    Boolean pennyRounding = sharedPref.getBoolean(getString(R.string.penny_rounding_switch), false);
+                    resultPrice.roundNumber(pennyRounding);
                     result.setText(resultPrice.formatNumber());
                 }
             } else if (!input.isEmpty() && input.length() == 1 && input.equals(".")) {

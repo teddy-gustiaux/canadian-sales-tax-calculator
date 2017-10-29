@@ -45,9 +45,11 @@
     <string name="pref_thousands_separators">Display thousands separators</string>
     <string name="pref_thousands_separators_summary">In the input price</string>
     <string name="separator_switch">separator_switch</string>
+    <!-- -->
     <string name="dark_theme_switch">dark_theme_switch</string>
     <string name="pref_dark_theme">Enable dark theme</string>
     <string name="pref_dark_theme_summary">The application will restart</string>
+    <!-- -->
     <string name="location_name_switch">location_name_switch</string>
     <string name="pref_location_name">Display full location name</string>
     <string name="pref_location_name_summary">If not, will display ISO 3166\-2:CA code</string>
@@ -85,6 +87,9 @@
         <item>@string/SK</item>
         <item>@string/YT</item>
     </string-array>
+    <!-- -->
+    <string name="penny_rounding_switch">penny_rounding_switch</string>
+    <string name="pref_penny_rounding">Enable penny rounding</string>
 
     <!-- About preferences -->
     <string name="pref_about_version">Version</string>

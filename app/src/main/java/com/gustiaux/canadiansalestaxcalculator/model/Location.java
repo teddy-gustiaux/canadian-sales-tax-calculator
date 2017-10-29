@@ -1,7 +1,5 @@
 package com.gustiaux.canadiansalestaxcalculator.model;
 
-import android.app.Application;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

@@ -34,8 +34,9 @@ public class Price {
         return nf.format(this.price);
     }
 
-    public void roundNumber() {
+    public void roundNumber(Boolean pennyRounding) {
         this.price = Math.round(this.price * 100.00) / 100.00;
+        if (pennyRounding) { this.price = Math.round(this.price * 20) / 20.0; }
     }
 
     public void addSalesTax(Double percentage) {

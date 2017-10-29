@@ -13,6 +13,11 @@
             android:positiveButtonText="@null"
             android:title="@string/pref_title_location"/>
 
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/penny_rounding_switch"
+            android:title="@string/pref_penny_rounding"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
