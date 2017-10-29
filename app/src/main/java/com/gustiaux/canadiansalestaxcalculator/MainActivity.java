@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateLocationInformation() {
         locationTextView = (TextView) findViewById(R.id.location);
-        this.locationSetting = sharedPref.getString(getString(R.string.location_list), "");
+        this.locationSetting = sharedPref.getString(getString(R.string.location_list), getString(R.string.ON));
 
         Boolean locationDisplayName = sharedPref.getBoolean(getString(R.string.location_name_switch), true);
         if (locationDisplayName) {

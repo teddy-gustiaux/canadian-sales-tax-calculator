@@ -12,9 +12,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden"
+            android:configChanges="orientation"
             android:label="@string/app_short_label"
-            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
