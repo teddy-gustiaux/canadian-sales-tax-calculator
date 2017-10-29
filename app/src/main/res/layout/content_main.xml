@@ -55,7 +55,7 @@
         android:id="@+id/priceDollarSign"
         android:layout_width="22dp"
         android:layout_height="38dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="monospace"
         android:text="@string/dollarSign"
         android:textSize="30sp"
