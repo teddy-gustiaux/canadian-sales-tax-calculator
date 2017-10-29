@@ -142,22 +142,20 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if (!input.isEmpty() && !input.equals(".")) {
-                String lastCharacter = input.substring(input.length() - 1);
-                if (!lastCharacter.equals(".")) {
-                    Price inputPrice = new Price(input);
-                    if (separatorSwitch) {
-                        displayInputPrice(inputPrice.formatNumber());
-                    } else {
-                        displayInputPrice(input);
-                    }
-                    // Calculate total after taxes
-                    Price resultPrice = inputPrice;
-                    Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
-                    resultPrice.addSalesTax(l.getTaxPercentage());
-                    Boolean pennyRounding = sharedPref.getBoolean(getString(R.string.penny_rounding_switch), false);
-                    resultPrice.roundNumber(pennyRounding);
-                    result.setText(resultPrice.formatNumber());
+                Price inputPrice = new Price(input);
+                if (separatorSwitch) {
+                    displayInputPrice(inputPrice.formatNumber());
+                } else {
+                    displayInputPrice(input);
                 }
+
+                // Calculate total after taxes
+                Price resultPrice = inputPrice;
+                Location l = ((CanadianSalesTaxCalculator) getApplication()).getLocation();
+                resultPrice.addSalesTax(l.getTaxPercentage());
+                Boolean pennyRounding = sharedPref.getBoolean(getString(R.string.penny_rounding_switch), false);
+                resultPrice.roundNumber(pennyRounding);
+                result.setText(resultPrice.formatNumber());
             } else if (!input.isEmpty() && input.length() == 1 && input.equals(".")) {
                 displayInputPrice(getString(R.string.default_input_decimal));
             } else {
