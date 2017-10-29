@@ -73,7 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateInputPrice() {
         String memoryInput = sharedPref.getString(getString(R.string.memory_input_price), null);
-        if (memoryInput != null && !memoryInput.isEmpty()) priceInput.setText(memoryInput);
+        Boolean separatorSwitch = sharedPref.getBoolean(getString(R.string.separator_switch), false);
+        if (memoryInput != null && !memoryInput.isEmpty()) {
+            if (!separatorSwitch) memoryInput = memoryInput.replaceAll(",", "");
+            displayInputPrice(memoryInput);
+        }
     }
 
     public void displayInputPrice(String price) {
@@ -126,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             String input = s.toString();
 
             // Make sure there are no more than 10 digits
-            Boolean separatorSwitch = sharedPref.getBoolean(getString(R.string.separator_switch), true);
+            Boolean separatorSwitch = sharedPref.getBoolean(getString(R.string.separator_switch), false);
             if (!separatorSwitch && input.length() > 10) {
                 if (input.contains(".")) {
                     input = input.substring(0, 11);
