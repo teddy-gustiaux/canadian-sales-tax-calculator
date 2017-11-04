@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_clear:
-                priceInput.setText("");
+                displayInputPrice("");
                 return true;
 
             default:
