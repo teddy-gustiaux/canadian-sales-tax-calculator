@@ -36,6 +36,7 @@
     <string name="PE">PE</string>
     <string name="SK">SK</string>
     <string name="YT">YT</string>
+    <string name="CUSTOM">CUSTOM</string>
 
     <!-- Preferences headers -->
     <string name="pref_header_general">General</string>
@@ -72,6 +73,7 @@
         <item>Prince Edward Island</item>
         <item>Saskatchewan</item>
         <item>Yukon</item>
+        <item>Custom</item>
     </string-array>
     <string-array name="pref_location_list_values">
         <item>@string/AL</item>
@@ -87,26 +89,38 @@
         <item>@string/PE</item>
         <item>@string/SK</item>
         <item>@string/YT</item>
+        <item>@string/CUSTOM</item>
     </string-array>
     <!-- -->
     <string name="penny_rounding_switch">penny_rounding_switch</string>
     <string name="pref_penny_rounding">Enable penny rounding</string>
+    <!-- -->
+    <string name="pref_custom_percentage">Custom percentage</string>
+    <string name="custom_percentage">custom_percentage</string>
+    <string name="custom_percentage_default">1</string>
+    <string name="custom_percentage_summary">Only applies if \'custom\' location selected</string>
+    <string name="custom_percentage_dialog">Enter your custom percentage</string>
 
     <!-- About preferences -->
     <string name="pref_about_version">Version</string>
     <string name="version">version</string>
+    <!-- -->
     <string name="pref_about_author">Author</string>
     <string name="author">Teddy Gustiaux</string>
     <string name="author_website">https://gustiaux.com</string>
+    <!-- -->
     <string name="pref_about_license">License</string>
     <string name="license_summary">MIT</string>
     <string name="license_website">https://opensource.org/licenses/MIT</string>
+    <!-- -->
     <string name="pref_about_source">Source code</string>
     <string name="source_summary">See on GitHub</string>
     <string name="source_website">https://github.com/teddy-gustiaux/canadian-sales-tax-calculator</string>
+    <!-- -->
     <string name="pref_about_taxes">Canada Revenue Agency</string>
     <string name="taxes_summary">Official source used for GST/HST rates</string>
     <string name="taxes_website">http://www.cra-arc.gc.ca/tx/bsnss/tpcs/gst-tps/rts-eng.html</string>
+    <!-- -->
     <string name="pref_about_icon">Icon</string>
     <string name="icon_summary">Adapted from Calculator by To Uyen</string>
     <string name="icon_website">https://thenounproject.com/search/?q=calculator&amp;i=670846</string>

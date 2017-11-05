@@ -22,17 +22,22 @@ public class Location {
         aMap.put("PE",15);
         aMap.put("SK",5);
         aMap.put("YT",5);
+        aMap.put("CUSTOM",1);
         locationTaxes = Collections.unmodifiableMap(aMap);
     }
 
     private Integer taxPercentage;
 
     public Location(String code) {
-        this.taxPercentage = this.locationTaxes.get(code);
+        this.taxPercentage = locationTaxes.get(code);
     }
 
     public void updateLocation(String code) {
-        this.taxPercentage = this.locationTaxes.get(code);
+        this.taxPercentage = locationTaxes.get(code);
+    }
+
+    public void setCustomPercentage(Integer percent) {
+        this.taxPercentage = percent;
     }
 
     public Double getTaxPercentage() {

@@ -13,6 +13,14 @@
             android:positiveButtonText="@null"
             android:title="@string/pref_title_location"/>
 
+        <EditTextPreference
+            android:key="@string/custom_percentage"
+            android:title="@string/pref_custom_percentage"
+            android:summary="@string/custom_percentage_summary"
+            android:dialogTitle="@string/custom_percentage_dialog"
+            android:inputType="number"
+            android:gravity="center"/>
+
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/penny_rounding_switch"

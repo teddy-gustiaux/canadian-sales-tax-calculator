@@ -66,7 +66,13 @@ public class MainActivity extends AppCompatActivity {
         taxTextView = (TextView) findViewById(R.id.tax);
         Location l = ((CanadianSalesTaxCalculator) this.getApplication()).getLocation();
         l.updateLocation(this.locationSetting);
+
+        // If custom percentage is used
+        String customPercentage = sharedPref.getString(getString(R.string.custom_percentage), getString(R.string.custom_percentage_default));
+        l.setCustomPercentage(Integer.parseInt(customPercentage));
+
         ((CanadianSalesTaxCalculator) this.getApplication()).setLocation(l);
+
         taxTextView.setText(getString(R.string.tax, l.getPercentage()));
     }
 
