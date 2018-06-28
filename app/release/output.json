@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1},"path":"CanadianSalesTaxCalculator-release-1.0.0.apk","properties":{"packageId":"com.gustiaux.CanadianSalesTaxCalculator","split":"","minSdkVersion":"16"}}]
+[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":2,"versionName":"1.1.0","enabled":true,"outputFile":"CanadianSalesTaxCalculator-release-1.1.0.apk","fullName":"release","baseName":"release"},"path":"CanadianSalesTaxCalculator-release-1.1.0.apk","properties":{}}]
