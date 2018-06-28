@@ -68,8 +68,12 @@ public class MainActivity extends AppCompatActivity {
         l.updateLocation(this.locationSetting);
 
         // If custom percentage is used
-        String customPercentage = sharedPref.getString(getString(R.string.custom_percentage), getString(R.string.custom_percentage_default));
-        l.setCustomPercentage(Integer.parseInt(customPercentage));
+        if (this.locationSetting.equals("CUSTOM")) {
+            String customPercentage = sharedPref.getString(getString(R.string.custom_percentage), getString(R.string.custom_percentage_default));
+            if (customPercentage.isEmpty())
+                customPercentage = getString(R.string.custom_percentage_default);
+            l.setCustomPercentage(Integer.parseInt(customPercentage));
+        }
 
         ((CanadianSalesTaxCalculator) this.getApplication()).setLocation(l);
 
