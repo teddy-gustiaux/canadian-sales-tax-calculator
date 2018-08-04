@@ -13,7 +13,6 @@ No ads and no permissions required. Respects your privacy!
 ### Features:
 - Dark theme
 - Penny rounding
-- Custom tax percentage
 - Easily clear the price input
 - Display thousands separators in the input price
 - Display the full location name or only its ISO code

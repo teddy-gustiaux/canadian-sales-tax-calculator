@@ -1,5 +1,6 @@
 <PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:preference="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:title="@string/pref_header_general" >
@@ -12,14 +13,6 @@
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:title="@string/pref_title_location"/>
-
-        <EditTextPreference
-            android:key="@string/custom_percentage"
-            android:title="@string/pref_custom_percentage"
-            android:summary="@string/custom_percentage_summary"
-            android:dialogTitle="@string/custom_percentage_dialog"
-            android:inputType="number"
-            android:gravity="center"/>
 
         <SwitchPreference
             android:defaultValue="false"

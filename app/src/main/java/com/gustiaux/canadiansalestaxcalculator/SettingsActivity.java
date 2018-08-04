@@ -169,19 +169,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference(getString(R.string.location_list)));
             Preference version = findPreference(getString(R.string.version));
             version.setSummary(BuildConfig.VERSION_NAME);
-            toggleCustomPercentage();
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
-        }
-
-        public void toggleCustomPercentage() {
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String location = sharedPreferences.getString(getString(R.string.location_list), getString(R.string.ON));
-            if (location.equals(getString(R.string.CUSTOM))) {
-                getPreferenceScreen().findPreference(getString(R.string.custom_percentage)).setEnabled(true);
-            } else {
-                getPreferenceScreen().findPreference(getString(R.string.custom_percentage)).setEnabled(false);
-            }
         }
 
         @Override
@@ -205,8 +194,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                             Intent intent = NavUtils.getParentActivityIntent(getActivity());
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             NavUtils.navigateUpTo(getActivity(), intent);
-                        } else if (key.equals(getString(R.string.location_list))) {
-                            toggleCustomPercentage();
                         }
                     }
                 };

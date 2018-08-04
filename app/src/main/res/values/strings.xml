@@ -36,7 +36,6 @@
     <string name="PE">PE</string>
     <string name="SK">SK</string>
     <string name="YT">YT</string>
-    <string name="CUSTOM">CUSTOM</string>
 
     <!-- Preferences headers -->
     <string name="pref_header_general">General</string>
@@ -73,7 +72,6 @@
         <item>Prince Edward Island</item>
         <item>Saskatchewan</item>
         <item>Yukon</item>
-        <item>Custom</item>
     </string-array>
     <string-array name="pref_location_list_values">
         <item>@string/AL</item>
@@ -89,17 +87,10 @@
         <item>@string/PE</item>
         <item>@string/SK</item>
         <item>@string/YT</item>
-        <item>@string/CUSTOM</item>
     </string-array>
     <!-- -->
     <string name="penny_rounding_switch">penny_rounding_switch</string>
     <string name="pref_penny_rounding">Enable penny rounding</string>
-    <!-- -->
-    <string name="pref_custom_percentage">Custom percentage</string>
-    <string name="custom_percentage">custom_percentage</string>
-    <string name="custom_percentage_default">1</string>
-    <string name="custom_percentage_summary">Only applies if \'custom\' location selected</string>
-    <string name="custom_percentage_dialog">Enter your custom percentage</string>
 
     <!-- About preferences -->
     <string name="pref_about_version">Version</string>
