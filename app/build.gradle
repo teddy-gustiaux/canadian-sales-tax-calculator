@@ -13,13 +13,13 @@ allprojects {
 }
 
 android {
-    compileSdkVersion 34
     defaultConfig {
         applicationId "com.gustiaux.CanadianSalesTaxCalculator"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 6
-        versionName "1.0.4"
+        compileSdk 34
+        versionCode 7
+        versionName "1.0.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         resourceConfigurations += ['en']
@@ -31,6 +31,9 @@ android {
             storeFile file(keystoreProperties['storeFile'])
             storePassword keystoreProperties['storePassword']
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     buildTypes {
         release {
@@ -64,4 +67,10 @@ dependencies {
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:support-vector-drawable:28.0.0'
     testImplementation 'junit:junit:4.12'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }

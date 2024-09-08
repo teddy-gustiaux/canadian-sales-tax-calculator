@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 6,
-      "versionName": "1.0.4",
-      "outputFile": "CanadianSalesTaxCalculator-release-1.0.4.apk"
+      "versionCode": 7,
+      "versionName": "1.0.5",
+      "outputFile": "CanadianSalesTaxCalculator-release-1.0.5.apk"
     }
   ],
   "elementType": "File",
