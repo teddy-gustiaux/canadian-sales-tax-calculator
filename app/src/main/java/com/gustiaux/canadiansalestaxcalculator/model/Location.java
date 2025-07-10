@@ -15,7 +15,7 @@ public class Location {
         aMap.put("NB",15);
         aMap.put("NL",15);
         aMap.put("NT",5);
-        aMap.put("NS",15);
+        aMap.put("NS",14);
         aMap.put("NU",5);
         aMap.put("ON",13);
         aMap.put("QC",5);

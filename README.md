@@ -42,6 +42,10 @@ Official source used for GST/HST rates: [Canada Revenue Agency](http://www.cra-a
 
 - Google Play and the Google Play logo are trademarks of Google LLC.
 
+## Privacy Policy
+
+- Available [here](https://github.com/teddy-gustiaux/canadian-sales-tax-calculator/blob/master/privacy-policy.md).
+
 - The app icon is a modified version of the icon *Calculator* by To Uyen from the Noun Project (available [here](https://thenounproject.com/search/?q=calculator&i=670846)).
 
 ## License
